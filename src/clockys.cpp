@@ -2,13 +2,6 @@
 #include <chrono>
 #include <iostream>
 
-#if USE_GLOG
-	#include <glog/logging.h>
-	#define PRINT_OUT LOG(INFO)
-#else
-	#define PRINT_OUT std::cout
-#endif
-
 using namespace std::chrono;
 
 namespace clockys {
@@ -19,9 +12,7 @@ Timer::Timer()
 }
 
 Timer::~Timer()
-{
-	PRINT_OUT << double((ms_since_epoch() - very_begin_))*0.001 << " sec elapsed.";
-}
+{}
 
 double Timer::elapse()
 {
